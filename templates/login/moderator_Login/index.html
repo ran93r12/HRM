@@ -1,0 +1,98 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Login/SingUp</title>
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css'>
+  <link rel="stylesheet"  type="text/css" href="{% static 'css/reg.css' %}" />
+
+</head>
+<body>
+  {% if messages %} {% for messsage in messages %}
+        <script type="text/javascript">alert('{{ messsage }}');</script>
+        {% endfor %} {% endif %}
+<!-- partial:index.partial.html -->
+<div class="main-box">
+  <div class="slider-cont">
+    <div class="signup-slider">
+      <div class="img-txt">
+        <div class="img-layer"></div>
+        <h1>Admin Portal to control entire system.</h1>
+        <img src="https://static.pexels.com/photos/33972/pexels-photo.jpg"/>
+      </div>
+      <div class="img-txt">
+        <div class="img-layer"></div>
+        <h1>House Rental Management System</h1>
+        <img src="https://static.pexels.com/photos/257897/pexels-photo-257897.jpeg"/>
+      </div>
+      <div class="img-txt">
+        <div class="img-layer"></div>
+        <h1>Admin Login</h1>
+        <img src="https://static.pexels.com/photos/317383/pexels-photo-317383.jpeg"/>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="form-cont">
+
+    <div class="top-buttons">
+      <button class="to-signup top-active-button">
+        Sign Up
+      </button>
+      <button class="to-signin">
+        Sign In
+      </button>
+    </div>
+    
+    <div class="form form-signup">
+      <form action="/moderator_signup" method="POST">
+        <h2 style="color:white;">Sign Up</h2><br>
+        {% csrf_token %}
+        <lable>E-MAIL</lable>
+        <input type="email" 
+               placeholder="Your e-mail" name="email">
+        <lable>PASSWORD</lable>
+        <input type="password" 
+               placeholder="Your password" name="password">
+<!--         <p class="terms">
+          <input type="checkbox">
+          I agree all statments in 
+          <a href="#" class="lined-link">terms of service</a>
+        </p> -->
+        <input type="submit"
+               class="form-btn"
+               value="Sign Up"/>
+        <br><br>
+        <a href="#" class="lined-link to-signin-link">I'm already member</a>
+      </form>
+    </div>
+
+    <div class="form form-signin">
+      <form action="/moderator_login" method="POST">
+        {% csrf_token %}
+         <h2 style="color:white;">Log In</h2><br>
+        <lable>E-MAIL</lable>
+        <input type="email" 
+               placeholder="Your e-mail" name="email">
+        <lable>PASSWORD</lable>
+        <input type="password" 
+               placeholder="Your password" name="password">
+        <input type="submit"
+               class="form-btn"
+               value="Sign In"/>
+        <br><br>
+        <a href="#" class="lined-link to-signup-link">Create new account</a>
+      </form>
+    </div>
+  </div>
+  <div class="clear-fix"></div>
+</div>
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js'></script>
+<script  type="text/javascript" src="{% static 'js/reg.js' %}"></script>
+</body>
+</html>

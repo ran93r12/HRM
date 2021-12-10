@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map View</title>
+    <link rel="stylesheet"  type="text/css" href="{% static 'css/style.css' %}" />
+    
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.js"></script>
+<style type="text/css">
+    #map { position: fixed; top: 0; bottom: 0; width: 100%; height: 100%; margin-top: 220px;}
+</style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Tenant Map View</h1>
+            <div>
+                
+                <a href="/advert/ads">Houses List</a>
+                <a href="/">Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="search-bar">
+            <h2>Nearest Locations according to the location</h2>
+<!--             <div>
+                <input type="search" name="search" id="search" placeholder="Enter location">
+                <i class="fas fa-search"></i>
+            </div> -->
+        </div>
+    </div>
+        <hr>
+    <div id="map"></div>
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoicmFuOTNyIiwiYSI6ImNrdm80MjN3dzFmbTEyeG91bmtmbmZ4bjQifQ.RioP9lrjtUV5S3j3zBT3OA';
+    const map = new mapboxgl.Map({
+    container: 'map', // container ID
+    style: 'mapbox://styles/mapbox/streets-v11', // style URL
+    center: [83.223,17.72], // starting position [lng, lat]
+    
+    zoom: 9 // starting zoom
+    });
+    map.addControl(new mapboxgl.FullscreenControl({container: document.querySelector('body')}));
+    map.addControl(new mapboxgl.NavigationControl());
+    {% for point in coordinates%}
+    var marker = new mapboxgl.Marker()
+        .setLngLat([{{point.longitude}},{{point.latitude}}])
+        .addTo(map);
+    {% endfor %}
+
+</script>
+
+
+
+
+</body>
+
+</html>

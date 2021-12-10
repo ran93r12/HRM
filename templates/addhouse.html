@@ -1,0 +1,278 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Add Houe</title>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+<link rel="stylesheet"  type="text/css" href="{% static 'css/addhouse.css' %}" />
+<link rel="stylesheet"  type="text/css" href="{% static 'css/dashboard.css' %}" />
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+   {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        <div class="alert {{ message.tags }}" role="alert">{{ message }}</div>
+        
+      {% endfor %}
+    </ul>
+  {% endif %}
+<body>
+    <div class="image-container set-full-height" style="background-image: url('http://demos.creative-tim.com/material-bootstrap-wizard/assets/img/wizard-book.jpg')">
+    	<!-- Nav bar start -->
+    	<div class="navigation">
+		    <ul>
+		      <li class="list active">
+		        <b></b>
+		        <b></b>
+		        <a href="/">
+		          <span class="icon">
+		            <ion-icon name="home-outline"></ion-icon>
+		          </span>
+		          <span class="title">Add House</span>
+		        </a>
+		      </li>
+		      <li class="list">
+		        <b></b>
+		        <b></b>
+		        <a href="/listings/lists">
+		          <span class="icon">
+		            <ion-icon name="list"></ion-icon>
+		          </span>
+		          <span class="title">Lisitings</span>
+		        </a>
+		      </li>
+		      <li class="list">
+		        <b></b>
+		        <b></b>
+		        <a href="/book/bookings">
+		          <span class="icon">
+		            <ion-icon name="albums"></ion-icon>
+		          </span>
+		          <span class="title">Bookings</span>
+		        </a>
+		      </li>
+		      <li class="list">
+		        <b></b>
+		        <b></b>
+		        <a href="/chat/chats">
+		          <span class="icon">
+		            <ion-icon name="chatbubbles"></ion-icon>
+		          </span>
+		          <span class="title">Chats</span>
+		        </a>
+		      </li>
+		      <li class="list">
+		        <b></b>
+		        <b></b>
+		        <a href="/">
+		          <span class="icon">
+		            <ion-icon name="log-out"></ion-icon>
+		          </span>
+		          <span class="title">Logout</span>
+		        </a>
+		      </li>
+		    </ul>
+		  </div>
+		  <div class="toggle">
+		    <ion-icon name="menu-outline" class="open"></ion-icon>
+		    <ion-icon name="close-outline" class="close"></ion-icon>
+		  </div>
+		  <!-- Nav bar end -->
+	    <!--   Big container   -->
+	    <div class="container">
+	        <div class="row">
+		        <div class="col-sm-8 col-sm-offset-2">
+		            <!-- Wizard container -->
+		            <div class="wizard-container">
+		                <div class="card wizard-card" data-color="red" id="wizard">
+		                    <form action="/advert/new_add" method="POST">
+		                <!--        You can switch " data-color="blue" "  with one of the next bright colors: "green", "orange", "red", "purple"             -->
+		                			{% csrf_token %}
+		                    	<div class="wizard-header">
+		                        	<h3 class="wizard-title">
+		                        		Add House
+		                        	</h3>
+									<h5>These details would be shared with tenants.</h5>
+		                    	</div>
+								<div class="wizard-navigation">
+									<ul>
+			                            <li><a href="#details" data-toggle="tab">Details</a></li>
+			                            <li><a href="#captain" data-toggle="tab">House Type</a></li>
+			                            <li><a href="#description" data-toggle="tab">Extra Details</a></li>
+			                        </ul>
+								</div>
+
+		                        <div class="tab-content">
+		                            <div class="tab-pane" id="details">
+		                            	<div class="row">
+			                            	<div class="col-sm-12">
+			                                	<h4 class="info-text"> Let's start with the basic details.</h4>
+			                            	</div>
+		                                	<div class="col-sm-6">
+												<div class="input-group">
+													<span class="input-group-addon">
+														<i class="material-icons">monetization_on</i>
+													</span>
+													<div class="form-group label-floating">
+			                                          	<label class="control-label">Rent</label>
+			                                          	<input type="text" class="form-control" name="rent">
+			                                        </div>
+												</div>
+
+												<div class="input-group">
+													<span class="input-group-addon">
+														<i class="material-icons">place</i>
+													</span>
+													<div class="form-group label-floating">
+			                                          	<label class="control-label">Address</label>
+			                                          	<input name="address" type="text" class="form-control">
+			                                        </div>
+												</div>
+												<div class="input-group">
+													<span class="input-group-addon">
+														<i class="material-icons">attach_money</i>
+													</span>
+													<div class="form-group label-floating">
+			                                          	<label class="control-label">Bond Amount</label>
+			                                          	<input name="amount" type="text" class="form-control">
+			                                        </div>
+												</div>
+
+		                                	</div>
+		                                	<div class="col-sm-6">
+		                                		<div class="input-group">
+																				<span class="input-group-addon">
+																					<i class="material-icons">pin_drop</i>
+																				</span>
+		                                    	<div class="form-group label-floating">
+		                                        	<label class="control-label">Area</label>
+	                                        		<input name="area" type="text" class="form-control">
+		                                    	</div>
+		                                    </div>
+		                                    <div class="col-sm-6">
+		                                		<div class="input-group">
+																				<span class="input-group-addon">
+																					<i class="material-icons">attach_money</i>
+																				</span>
+		                                    	<div class="form-group label-floating">
+		                                        	<label class="control-label">ExtraCharges</label>
+	                                        		<input name="charges" type="text" class="form-control">
+		                                    	</div>
+		                                    </div>
+		                                  </div>
+		                                  <div class="col-sm-6">
+		                                		<div class="input-group">
+																				<span class="input-group-addon">
+																					<i class="material-icons">access_time</i>
+																				</span>
+		                                    	<div class="form-group label-floating">
+		                                        	<label class="control-label">Bond Year</label>
+	                                        		<input name="year" type="text" class="form-control">
+		                                    	</div>
+		                                    </div>
+		                                  </div>
+		                                  <div class="col-sm-6">
+																				<div class="form-group label-floating">
+		                                        	<label class="control-label">Upload</label>
+	                                        		<!-- <input type="file" name="image" class=	"form-control"> -->
+	                                        		<div class="file-field">
+																							    <div class="btn btn-primary btn-sm float-left">
+																							      <span>Choose file</span>
+																							      <input type="file">
+																							    </div>
+																							    <!-- <div class="file-path-wrapper">
+																							      <input class="file-path validate" type="text" placeholder="Upload your file">
+																							    </div> -->
+																							  </div>
+		                                    	</div>
+		                                    </div>
+		                                	</div>
+		                            	</div>
+		                            </div>
+		                            <div class="tab-pane" id="captain">
+		                                <h4 class="info-text">What type of house would you want? </h4>
+		                                <div class="row">
+		                                    <div class="col-sm-10 col-sm-offset-1">
+		                                        <div class="col-sm-4">
+		                                            <div class="choice" data-toggle="wizard-radio" rel="tooltip" title="This is good if you travel alone.">
+		                                                <input type="radio" name="job" value="Design">
+		                                                <div class="icon">
+		                                                    <i class="material-icons">weekend</i>
+		                                                </div>
+		                                                <h6>Single</h6>
+		                                            </div>
+		                                        </div>
+		                                        <div class="col-sm-4">
+		                                            <div class="choice" data-toggle="wizard-radio" rel="tooltip" title="Select this room if you're traveling with your family.">
+		                                                <input type="radio" name="job" value="Code">
+		                                                <div class="icon">
+		                                                    <i class="material-icons">home</i>
+		                                                </div>
+		                                                <h6>Family</h6>
+		                                            </div>
+		                                        </div>
+												<div class="col-sm-4">
+		                                            <div class="choice" data-toggle="wizard-radio" rel="tooltip" title="Select this option if you are coming with your team.">
+		                                                <input type="radio" name="job" value="Code">
+		                                                <div class="icon">
+		                                                    <i class="material-icons">business</i>
+		                                                </div>
+		                                                <h6>Business</h6>
+		                                            </div>
+		                                        </div>
+		                                    </div>
+		                                </div>
+		                            </div>
+		                            <div class="tab-pane" id="description">
+		                                <div class="row">
+		                                    <h4 class="info-text"> Drop us a small description.</h4>
+		                                    <div class="col-sm-6 col-sm-offset-1">
+	                                    		<div class="form-group">
+		                                            <label>Room description</label>
+		                                            <textarea class="form-control" placeholder="" rows="6" name="desc"></textarea>
+		                                        </div>
+		                                    </div>
+		                                    <div class="col-sm-4">
+		                                    	<div class="form-group">
+		                                            <label class="control-label">Example</label>
+		                                            <p class="description">"The house really nice name is recognized as being a really awesome house. We use it every sunday when we go fishing and we catch a lot. It has some kind of magic shield around it."</p>
+		                                        </div>
+		                                    </div>
+		                                </div>
+		                            </div>
+		                        </div>
+	                        	<div class="wizard-footer">
+	                            	<div class="pull-right">
+	                                    <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next' />
+	                                    <!-- <input type='button' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' type="submit" value='Finish' /> -->
+	                                    <button class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' type="submit" value='Finish' />Submit</button>
+	                                </div>
+	                                <div class="pull-left">
+	                                    <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Previous' />
+	                                </div>
+	                                <div class="clearfix"></div>
+	                        	</div>
+		                    </form>
+		                </div>
+		            </div> <!-- wizard container -->
+		        </div>
+	    	</div> <!-- row -->
+		</div> <!--  big container -->
+
+	</div>
+</body>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script  type="text/javascript" src="{% static 'js/addhouse.js' %}"></script>
+<script  type="text/javascript" src="{% static 'js/dashboard.js' %}"></script>
+
+</body>
+</html>

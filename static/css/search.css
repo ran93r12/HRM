@@ -1,0 +1,131 @@
+@font-face {
+  font-family: 'Orbitron';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/orbitron/v19/yMJMMIlzdpvBhQQL_SC3X9yhF25-T1nyGy6BoWg2.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Orbitron';
+  font-style: normal;
+  font-weight: 900;
+  src: url(https://fonts.gstatic.com/s/orbitron/v19/yMJMMIlzdpvBhQQL_SC3X9yhF25-T1nysimBoWg2.ttf) format('truetype');
+}
+body {
+  background-color: #2ecc71;
+}
+.searchTriggerContanier .clickHere {
+  display: inline-block;
+  position: relative;
+  margin-top: 20px;
+  left: 81%;
+  font-size: 22px;
+  font-weight: bold;
+  font-family: 'Orbitron', sans-serif;
+}
+.searchTriggerContanier .clickHere .clickHere-Label {
+  display: inline-block;
+}
+.searchTriggerContanier .clickHere .clickHere-trigger {
+  display: inline-block;
+  margin-bottom: -20px;
+}
+.searchTriggerContanier .clickHere .clickHere-trigger .search-trigger {
+  display: inline-block;
+  width: 53px;
+  height: 47px;
+  font-size: 28px;
+  line-height: 47px;
+  text-align: center;
+  background: #0a0a0a;
+  border: 4px solid #000;
+  border-radius: 30px;
+  font-weight: normal;
+  text-decoration: none;
+  color: #27ae60;
+}
+.searchTriggerContanier .clickHere .clickHere-trigger .search-trigger:hover,
+.searchTriggerContanier .clickHere .clickHere-trigger .search-trigger:focus,
+.searchTriggerContanier .clickHere .clickHere-trigger .search-trigger:active {
+  color: rgba(232, 126, 0, 0.7);
+}
+.body-overlay {
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1001;
+  display: none;
+}
+#search-overlay-form {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  width: 80%;
+  vertical-align: middle;
+  color: #FFF;
+}
+#search-overlay-form input {
+  background: transparent;
+  border: none;
+  letter-spacing: -3px;
+  font-size: 80px;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  color: #fff;
+}
+#search-overlay-form input,
+#search-overlay-form input:hover,
+#search-overlay-form input:focus {
+  outline: none;
+}
+#search-overlay-form input[type="search"]::-webkit-search-decoration,
+#search-overlay-form input[type="search"]::-webkit-search-cancel-button,
+#search-overlay-form input[type="search"]::-webkit-search-results-button,
+#search-overlay-form input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+#search-overlay-form p {
+  letter-spacing: 2px;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 75px;
+}
+#search-overlay-form .fa-times {
+  position: absolute;
+  top: 5%;
+  right: 10%;
+  font-size: 42px;
+  cursor: pointer;
+}
+.font {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 70px;
+  font-weight: bold;
+}
+.font #spanHover {
+  backface-visibility: hidden;
+  transition-property: transform;
+  vertical-align: middle;
+  transform: translateZ(0);
+  transition-duration: 0.3s;
+  -webkit-backface-visibility: hidden;
+  -webkit-transition-property: transform;
+  -webkit-transform: translateZ(0);
+  -webkit-transition-duration: 0.3s;
+  display: inline-block;
+}
+.font #spanHover:hover {
+  transform: scale(1.3);
+  -webkit-transform: scale(1.3);
+  color: #FFC203;
+  cursor: pointer;
+}

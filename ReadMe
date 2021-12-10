@@ -1,0 +1,43 @@
+∗∗∗ House Rental Management ∗∗∗
+
+[+] — First make migrations from database and Start Server
+
+
+[+] — Creating Users
+        — We have here 3 types of users
+                ♦ Admin / Moderator
+                ♦ LandLord / Owner
+                ♦ Tenant / User  
+
+
+[+] — Creating accounts for each type of 3 user.
+
+
+[+] — Firstly Sigin for the LandLord to enter the new house details.
+
+
+[+] — LandLord have access to create new house and see list of houses with a chat window.
+ 
+
+[+] — After, the owner uploads the house its admin work to verify and accept the request.
+
+
+[+] — Only the admin accpeted houses will be get by the tenant.
+
+
+[+] — Admin have access to create, delete and and add new houses.
+
+
+[+] — Tenant Login to the protal to search for a rental house.
+
+
+[+] — Tenant has access to  the houses available, enquiry details and can book slot.
+
+
+[+] — Tenant can search houses by LOCATION based by entering the area name.
+
+
+[+] — Finally, Tenant has map view of the houses.
+
+ 
+

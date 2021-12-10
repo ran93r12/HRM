@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>House Renal</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/registration-form-styles.css' %}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  </head>
+
+  <body>
+
+    {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        <div class="alert {{ message.tags }}" role="alert">{{ message }}</div>
+      {% endfor %}
+    </ul>
+  {% endif %}
+    <div class="registration-container-wrapper">
+      <div class="registration-container" id="registration-container-id">
+          <div class="form-container sign-up-container">
+              <form action="/signup" enctype="multipart/form-data" method="POST">
+                  {% csrf_token %}
+                  <h1>Create Account</h1>
+                  <div style="height:40px; width:100%; clear:both;"></div>
+                  <input type="email" placeholder="Email" name="email" />
+                  <input type="password" placeholder="Password" name="password" />
+                  <input type="password" placeholder="Confirm Password" name="password2"/>
+                  <div class="registration-form-role">
+                    <input type="radio" name="role" id="registration-form-role-radio-1" value="Landlord">
+                    <label for="registration-form-role-radio-1">Landlord</label>
+                    <input type="radio" name="role" id="registration-form-role-radio-2" value="Tenant">
+                    <label for="registration-form-role-radio-2">Tenant</label>
+                  </div>
+                  <button type="submit">Sign Up</button>
+              </form>
+          </div>
+          <div class="form-container sign-in-container">
+              <form action="/login" method="POST">
+                  {% csrf_token %}
+                  <h1>Sign in</h1>
+                  <div style="height:40px; width:100%; clear:both;"></div>
+                  <input type="email" placeholder="Email" name="email"/>
+                  <input type="password" placeholder="Password" name="password"/>
+                  <button type="submit">Sign In</button>
+              </form>
+          </div>
+          <div class="overlay-container">
+              <div class="overlay">
+                  <div class="overlay-panel overlay-left">
+                      <h1>Welcome!</h1>
+                      <p>Already have an account? Login here</p>
+                      <button class="ghost" id="signIn">Sign In</button>
+                  </div>
+                  <div class="overlay-panel overlay-right">
+                      <h1>Hello There!</h1>
+                      <p>Don't have an account? register here</p>
+                      <button class="ghost" id="signUp">Sign Up</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  }
+  }
+  </div>
+  <script>
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('registration-container-id');
+
+    signUpButton.addEventListener('click', () => {
+        container.classList.add("right-panel-active");
+    });
+
+    signInButton.addEventListener('click', () => {
+        container.classList.remove("right-panel-active");
+    });
+</script>
+  </body>
+</html>

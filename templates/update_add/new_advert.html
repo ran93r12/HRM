@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>House Rental</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <h1>Landlord</h1>
+        <div>
+          <a href="/">Home</a>
+          <a href="/advert/ads">Houses List</a>
+          <a href="/chat/chats">Chats</a>
+          <a href="/listings/lists">Listings</a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container">
+      {% if messages %} {% for messsage in messages %}
+      <div class="message">{{messsage}}</div>
+      {% endfor %} {% endif %}
+      <form
+        action="listings/update/{{data.id}}"
+        class="form fm-center"
+        id="form"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        {% csrf_token %}
+        <h1>Update A Listing</h1>
+        <div class="form-control">
+          <label for="rent">Rent</label>
+          <input type="text" name="rent" id="rent" value="{{data.rent}}" />
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small></small>
+        </div>
+
+        <div class="form-control">
+          <label for="area">Area</label>
+          <input type="text" name="area" id="area" value="{{data.area}}" />
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small></small>
+        </div>
+
+        <div class="form-control">
+          <label for="year">Bond Year</label>
+          <input type="text" name="year" id="year" value="{{data.bond_year}}" />
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small></small>
+        </div>
+
+        <div class="form-control">
+          <label for="amount">Bond Amount</label>
+          <input
+            type="text"
+            name="amount"
+            id="amount"
+            value="{{data.bond_amount}}"
+          />
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small></small>
+        </div>
+
+        <div class="form-control">
+          <label for="extra">Other charges</label>
+          <input
+            type="text"
+            name="charges"
+            id="charges"
+            value="{{data.other_charges}}"
+          />
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small></small>
+        </div>
+
+        <div class="form-control">
+          <label for="address">Address</label>
+          <input
+            type="text"
+            name="address"
+            id="address"
+            value="{{data.address}}"
+          />
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small></small>
+        </div>
+
+        <div class="form-control">
+          <label for="desc">Description</label>
+          <textarea name="desc" id="desc" cols="45" rows="5">
+{{data.description}}</textarea
+          >
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small></small>
+        </div>
+
+        <div class="form-control">
+          <label for="image">Upload Image</label>
+          <input type="file" name="image" id="image" />
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small></small>
+        </div>
+
+        <div class="form-control">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

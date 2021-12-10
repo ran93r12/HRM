@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Rental</title>
+    <link rel="stylesheet"  type="text/css" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet"  type="text/css" href="{% static 'css/dashboard.css' %}" />
+    
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+
+<body>
+    <!-- <header>
+        <nav>
+            <h1>Tenant</h1>
+            <div>
+                
+                <a href="/advert/filter">Search</a>
+                <a href="/">Logout</a>
+            </div>
+        </nav>
+    </header> -->
+    <div class="navigation">
+    <ul>
+      <li class="list active">
+        <b></b>
+        <b></b>
+        <a href="/advert/ads">
+          <span class="icon">
+            <ion-icon name="home-outline"></ion-icon>
+          </span>
+          <span class="title">Home</span>
+        </a>
+      </li>
+      <li class="list">
+        <b></b>
+        <b></b>
+        <a href="/advert/filter">
+          <span class="icon">
+            <ion-icon name="search"></ion-icon>
+          </span>
+          <span class="title">Search</span>
+        </a>
+      </li>
+      <li class="list">
+        <b></b>
+        <b></b>
+        <a href="/">
+          <span class="icon">
+            <ion-icon name="log-out"></ion-icon>
+          </span>
+          <span class="title">Logout</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="toggle">
+    <ion-icon name="menu-outline" class="open"></ion-icon>
+    <ion-icon name="close-outline" class="close"></ion-icon>
+  </div>
+
+    <div class="container">
+        <div class="search-bar">
+            <h2>Easiest way to Rent a home</h2>
+            <div>
+                <input type="search" name="search" id="search" placeholder="Enter location">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+        <hr>
+
+<!--         <div class="filter-bar">
+            <h2>Filter By: (Rent/Date)</h2>
+            <input type="range" name="range" id="range">
+            <input type="date" name="date" id="date">
+        </div> -->
+
+        <div>
+            <p>{{adverts.count}} Results</p>
+           
+            <div class="results">
+                 {% for item in adverts%}
+                <div class="result">
+                    <figure>
+                        <img src="/media/{{item.image}}" alt="hostel 1">
+                    </figure>
+                    <div class="details">
+                        <p class="sub-title">Address:</p>
+                        <p>{{item.address}}</p>
+                        <h3><span>Rs:{{item.rent}}</span> | Deposit: {{item.bond_year}} months</h3>
+                        <h4>Other charges :: {{item.other_charges}}</h4>
+                        <h4>1 room - 225 sq. ft</h4>
+                        <p class="sub-title">Description:</p>
+                        <p>{{item.description}}</p>
+                    </div>
+
+                    <div class="action">
+                        <a href="advert/individual_advert/{{item.id}}"><button>Equiry</button></a>
+                        <a href="book/book_visit/{{item.id}}"><button>Book Visit</button></a>
+                    </div>
+                </div>
+
+            {%endfor%}
+
+            </div>
+        </div>
+    </div>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<!-- partial -->
+  <script  type="text/javascript" src="{% static 'js/dashboard.js' %}"></script>
+</body>
+
+</html>

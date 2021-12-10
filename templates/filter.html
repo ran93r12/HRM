@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Rental</title>
+    <link rel="stylesheet"  type="text/css" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet"  type="text/css" href="{% static 'css/dashboard.css' %}" />
+    <link rel="stylesheet"  type="text/css" href="{% static 'css/search.css' %}" />
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css'>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+<body>
+    <!-- <header>
+        <nav>
+            <h1>Tenant</h1>
+            <div>
+                
+                <a href="/advert/ads">Houses List</a>
+                <a href="/">Logout</a>
+            </div>
+        </nav>
+    </header> -->
+        <div class="navigation">
+    <ul>
+      <li class="list">
+        <b></b>
+        <b></b>
+        <a href="/advert/ads">
+          <span class="icon">
+            <ion-icon name="home-outline"></ion-icon>
+          </span>
+          <span class="title">Home</span>
+        </a>
+      </li>
+      <li class="list active">
+        <b></b>
+        <b></b>
+        <a href="/advert/filter">
+          <span class="icon">
+            <ion-icon name="search"></ion-icon>
+          </span>
+          <span class="title">Search</span>
+        </a>
+      </li>
+      <li class="list">
+        <b></b>
+        <b></b>
+        <a href="/">
+          <span class="icon">
+            <ion-icon name="log-out"></ion-icon>
+          </span>
+          <span class="title">Logout</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="toggle">
+    <ion-icon name="menu-outline" class="open"></ion-icon>
+    <ion-icon name="close-outline" class="close"></ion-icon>
+  </div>
+   <!--  <div class="container">
+        <div class="search-bar">
+            <h2>Location Based Search</h2>
+        <hr>
+
+        <div>
+            <form action="Search">
+                <input type="text" class="form-control" name="Location" />
+                <button type="submit" class="btn"> Search</button>
+            </form>
+        </div>
+
+
+            </div>
+        </div>
+    </div> -->
+  <div class="font">
+    <span id="spanHover">Click Here to search</span>
+  </div>
+  <div class="body-overlay">
+    <form id="search-overlay-form" role="search" method="GET" action="Search" autocomplete="off">
+      <input type="search" placeholder="Start your search here" name="Location">
+      <p>Press enter to search for the location</p>
+      <span class="fa fa-times"></span>
+    </form>
+  </div>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js'></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script  type="text/javascript" src="{% static 'js/dashboard.js' %}"></script>
+<script  type="text/javascript" src="{% static 'js/search.js' %}"></script>
+</body>
+
+</html>

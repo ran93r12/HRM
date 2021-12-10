@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>House Rental</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style.css' %}"
+    />
+    <link rel="stylesheet"  type="text/css" href="{% static 'css/dashboard.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <!-- <header>
+      <nav>
+        <h1>Staff</h1>
+        <div>
+          <a href="/">Home</a>
+          <a href="/advert/ads">Houses List</a>
+          <a href="/">Logout</a>
+        </div>
+      </nav>
+    </header> -->
+    <!-- !-- Nav bar start --> 
+      <div class="navigation">
+        <ul>
+          <li class="list active">
+            <b></b>
+            <b></b>
+            <a href="#">
+              <span class="icon">
+                <ion-icon name="people"></ion-icon>
+              </span>
+              <span class="title">Admin Panel</span>
+            </a>
+          </li>
+          <li class="list">
+            <b></b>
+            <b></b>
+            <a href="/advert/new">
+              <span class="icon">
+                <ion-icon name="home-outline"></ion-icon>
+              </span>
+              <span class="title">Add House</span>
+            </a>
+          </li>
+          <li class="list">
+            <b></b>
+            <b></b>
+            <a href="/">
+              <span class="icon">
+                <ion-icon name="log-out"></ion-icon>
+              </span>
+              <span class="title">Logout</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="toggle">
+        <ion-icon name="menu-outline" class="open"></ion-icon>
+        <ion-icon name="close-outline" class="close"></ion-icon>
+      </div>
+      <!-- Nav bar end -->
+
+    <div class="container">
+      <h3>Review Requests</h3>
+      <table>
+        <thead>
+          <th>Application No.</th>
+          <th>Owner</th>
+          <th>Details</th>
+          <th>Action</th>
+        </thead>
+
+        <tbody>
+          {% for add in adverts%}
+          <tr>
+            <td>{{add.id}}</td>
+            <td>{{add.manager.email}}</td>
+            <td>
+              <a href="advert/individual_advert/{{add.id}}"
+                ><button>View</button></a
+              >
+            </td>
+            <td>
+              <a href="advert/approve/{{add.id}}"><button>Approve</button></a>
+              <a href="advert/reject/{{add.id}}"><button>Reject</button></a>
+            </td>
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+
+      <div class="f-right">
+        <a href="advert/report"><button>Reports</button></a>
+        <a href="advert/print"><button>Print</button></a>
+      </div>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script  type="text/javascript" src="{% static 'js/dashboard.js' %}"></script>
+  </body>
+</html>

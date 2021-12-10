@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>House Rental</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet"  type="text/css" href="{% static 'css/homepage.css' %}" />
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="nav" class="nav">
+  <ul>
+    <li><a href="/page">Register/Log In</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="/moderator_login">Admin Register/Log In</a></li>
+  </ul>
+</div>
+<div class="container">
+  <div id="home" class="bg">
+    <div>
+      <h1>Home</h1>
+      <span>THE BEST PART ABOUT GOING AWAY IS COMING HOME.</span>
+    </div>
+  </div>
+  <div id="about" class="bg">
+    <div>
+      <h1>About the company</h1>
+      <span>Here, we find you the most comfortable Home</span>
+    </div>
+  </div>
+  <div id="services" class="bg">
+    <div>
+      <h1>Services we do</h1>
+      <span>House Rental</span>
+    </div>
+  </div>
+  <div id="contact" class="bg">
+    <div>
+      <h1>Contact us</h1>
+      <span>Love to hear from you.</span>
+    </div>
+  </div>
+  <div class="newsletter">
+    <p>Hear something from us</p>
+    <div>
+      Email
+      <input placeholder="your.email@example.com">
+      <button>Submit</button>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Happy searching!</span>
+    <span><a href="/page">Home</a></span>
+    <span><a href="#about">About</a></span>
+    <span><a href="#services">Services</a></span>
+    <span><a href="#contact">Contact</a></span>
+    <span>χαρούμενο σπίτι</span>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  <script  type="text/javascript" src="{% static 'js/homepage.js' %}"></script>
+
+</body>
+</html>

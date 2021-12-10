@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>House Rental</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <h1>Staff Login</h1>
+        <div>
+          <a href="/">Student login</a>
+          <a href="/landlord">LandLord login</a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container">
+      <main class="col-2">
+        <!-- LOgin form -->
+        {% if messages %} {% for messsage in messages %}
+        <div class="message">{{messsage}}</div>
+        {% endfor %} {% endif %}
+        <form action="/moderator_login" class="form" id="form" method="POST">
+          {% csrf_token %}
+          <h1>Login</h1>
+          <div class="form-control">
+            <label for="email">Email</label>
+            <input
+              type="text"
+              name="email"
+              id="email"
+              placeholder="Enter email..."
+            />
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small></small>
+          </div>
+
+          <div class="form-control">
+            <label for="passwrod">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password1"
+              placeholder="Enter password..."
+            />
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small></small>
+          </div>
+
+          <div class="form-control">
+            <button type="submit">Login</button>
+          </div>
+        </form>
+
+        <div id="line"></div>
+
+        <!-- register form -->
+        <form
+          action="/moderator_signup"
+          class="form"
+          id="form2"
+          enctype="multipart/form-data"
+          method="POST"
+        >
+          {% csrf_token %}
+          <h1>Register</h1>
+          <div class="form-control">
+            <label for="email">Email</label>
+            <input
+              type="text"
+              name="email"
+              id="email2"
+              placeholder="Enter email..."
+            />
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small></small>
+          </div>
+
+          <div class="form-control">
+            <label for="passwrod">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Enter password..."
+            />
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small></small>
+          </div>
+
+          <div class="form-control">
+            <label for="passwrod">Password Confirm</label>
+            <input
+              type="password"
+              name="password2"
+              id="password2"
+              placeholder="Re-enter password..."
+            />
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Passwords do not match</small>
+          </div>
+          <div class="form-control">
+            <button type="submit">Register</button>
+          </div>
+        </form>
+      </main>
+    </div>
+  </body>
+</html>

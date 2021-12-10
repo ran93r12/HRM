@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>House Rental</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <h1>LandLord</h1>
+        <div>
+          
+          <a href="/chat/chats">Chats</a>
+          <a href="/listings/lists">Listings</a>
+          <a href="/book/bookings">Bookings</a>
+          <a href="/">Logout</a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container">
+      {% if messages %} {% for messsage in messages %}
+      <div class="message">{{messsage}}</div>
+      {% endfor %} {% endif %}
+      <form
+        action="/advert/new_add"
+        class="form fm-center"
+        id="form"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        {% csrf_token %}
+        <h1>Add New House</h1>
+        <div class="form-control">
+          <label for="rent">Rent</label>
+          <input
+            type="text"
+            name="rent"
+            id="rent"
+            placeholder="Enter rent..."
+          />
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small></small>
+        </div>
+
+        <div class="form-control">
+          <label for="area">Area</label>
+          <input
+            type="text"
+            name="area"
+            id="area"
+            placeholder="Enter your area..."
+          />
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small></small>
+        </div>
+
+        <div class="form-control">
+          <label for="year">Bond Year</label>
+          <input
+            type="text"
+            name="year"
+            id="year"
+            placeholder="Enter bond year..."
+          />
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small></small>
+        </div>
+
+        <div class="form-control">
+          <label for="amount">Bond Amount</label>
+          <input
+            type="text"
+            name="amount"
+            id="amount"
+            placeholder="Enter bond amount..."
+          />
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small></small>
+        </div>
+
+        <div class="form-control">
+          <label for="extra">Other charges</label>
+          <input
+            type="text"
+            name="charges"
+            id="charges"
+            placeholder="Enter other charges..."
+          />
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small></small>
+        </div>
+
+        <div class="form-control">
+          <label for="address">Address</label>
+          <input
+            type="text"
+            name="address"
+            id="address"
+            placeholder="Enter your address..."
+          />
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small></small>
+        </div>
+
+        <div class="form-control">
+          <label for="desc">Description</label>
+          <textarea
+            name="desc"
+            id="desc"
+            cols="45"
+            rows="5"
+            placeholder="Type here..."
+          ></textarea>
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small></small>
+        </div>
+
+        <div class="form-control">
+          <label for="image">Upload Image</label>
+          <input type="file" name="image" id="image" />
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small></small>
+        </div>
+
+        <div class="form-control">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
